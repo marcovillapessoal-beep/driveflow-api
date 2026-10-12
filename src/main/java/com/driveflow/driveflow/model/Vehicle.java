@@ -71,12 +71,12 @@ public class Vehicle {
     public String getIpvaStats() {
         if (getIpvaRequired()) {
             if (Instant.now().getEpochSecond() > ipvaExpirationTimestamp) {
-                return "Pagar IPVA!";
+                return "pagar ipa";
             } else {
                 return "Em dia";
             }
         } else {
-            return "Veiculo não paga IPVA!";
+            return "Veiculo não paga IPVA";
         }
     }
 
