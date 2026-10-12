@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*") // 👈 ADICIONEI ESTA LINHA AQUI! Ela abre as portas do Java para o seu site ler os dados.
-@RequestMapping("/api/vehicles") // Rota principal da API de internet
+@CrossOrigin(origins = "*")
+@RequestMapping("/api/vehicles")
 public class VehicleController {
 
     @Autowired
@@ -32,11 +32,11 @@ public class VehicleController {
                 .orElseThrow(() -> new IllegalArgumentException("Veículo não encontrado!"));
 
         try {
-            vehicle.renewIpva(); // Roda a sua lógica de segurança
-            repository.save(vehicle); // Atualiza os dados no banco
-            return "✅ IPVA do veículo com placa " + plate + " foi renovado!";
+            vehicle.renewIpva();
+            repository.save(vehicle);
+            return "Vehicle tax (IPVA) paid for the vehicle with license plate " + plate;
         } catch (IllegalStateException e) {
-            return "❌ Erro: " + e.getMessage();
+            return "Error " + e.getMessage();
         }
     }
 }
