@@ -1,0 +1,2 @@
+### Simular o clique do botão "Quitar IPVA"
+POST http://localhost:8080/api/vehicles/EAF-218-FGA/renew
