@@ -21,17 +21,12 @@ public class DriveflowApplication {
     @EventListener(ApplicationReadyEvent.class)
     public void onStartDatas() {
         Vehicle vehicleClient = new Vehicle("EAF-218-FGA", "Gol Quadrado (2025)", "Branca", 2025);
-
-        // 2. FORÇAMOS o IPVA dele a estar VENCIDO (colocando um timestamp do passado)
         vehicleClient.setIpvaExpirationTimestamp(100000L);
 
         repository.save(vehicleClient);
-
         repository.save(new Vehicle("EAF-218-FGB", "Gol Quadrado (2006)", "Preta", 2006));
         repository.save(new Vehicle("EAF-218-FGC", "Gol Quadrado (1998)", "Vermelha", 1998));
 
-        System.out.println("\n========================================================");
-        System.out.println("🚀 BANCO DE DADOS POPULADO COM CARRO VENCIDO PARA TESTES!");
-        System.out.println("========================================================\n");
+        System.out.println("IPVA testing system successfully launched.");
     }
 }
